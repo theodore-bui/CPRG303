@@ -14,9 +14,13 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 function App() {
   const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
 
+  const addTask = task => {
+    setTasks([...tasks, task]);
+  };
+
   return (
     <SafeAreaView>
-      <ToDoForm />
+      <ToDoForm addTask={addTask} />
       <ToDoList tasks={tasks} />
     </SafeAreaView>
   );
